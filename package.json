@@ -2,6 +2,7 @@
   "name": "acp",
   "displayName": "acp",
   "description": "Add Commit and push",
+  "publisher": "slimal",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.78.0"

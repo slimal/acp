@@ -1,71 +1,62 @@
-# acp README
+# Git Add, Commit, Push VSCode Extension
 
-This is the README for your extension "acp". After writing up a brief description, we recommend including the following sections.
+This Visual Studio Code extension simplifies your Git workflow by allowing you to add, commit with a default message, and push your changes to the current project's repository using a keyboard shortcut.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Adds all changes to the staging area.
+- Commits changes with a default commit message.
+- Pushes changes to the remote repository.
+- Executes all actions with a single keyboard shortcut.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Launch Visual Studio Code.
+2. Open the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window.
+3. Search for "Git Add, Commit, Push".
+4. Click the Install button to install the extension.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Usage
 
-## Requirements
+Once the extension is installed, you can trigger the Git Add, Commit, Push command using the following keyboard shortcut:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- **Windows/Linux**: `Ctrl+Shift+G`
+- **Mac**: `Cmd+Shift+G`
 
-## Extension Settings
+This will add, commit, and push changes to the current project's Git repository.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Customization
 
-For example:
+You can customize the default commit message and keyboard shortcut by modifying the extension's source code. To do this, follow these steps:
 
-This extension contributes the following settings:
+1. Clone the repository or download the source code.
+2. Open the `src/extension.ts` file.
+3. Change the default commit message by modifying the following line:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+   ```typescript
+   'git commit -m "Your default commit message"'
+   ```
 
-## Known Issues
+4. Open the `package.json` file.
+5. Change the keyboard shortcut by modifying the `key` and `mac` properties in the `keybindings` section:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+   ```json
+   "keybindings": [
+       {
+           "command": "extension.gitAddCommitPush",
+           "key": "ctrl+shift+g",
+           "mac": "cmd+shift+g",
+           "when": "editorTextFocus"
+       }
+   ]
+   ```
 
-## Release Notes
+6. Save your changes and build the extension according to the [official documentation](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 
-Users appreciate release notes as you update your extension.
+## Contributing
 
-### 1.0.0
+We welcome contributions! Please feel free to submit issues or pull requests for improvements or bug fixes.
 
-Initial release of ...
+## License
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This extension is released under the [MIT License](LICENSE).
